@@ -13,6 +13,7 @@ import yaml
 from datetime import datetime
 import joblib
 import json
+import uuid
 
 
 def load_config(config_file='./conf/config.yaml'):
@@ -261,6 +262,7 @@ def add_car():
 
         car_data = request.get_json()
         car_data['currency'] = car_data.get('currency', 'EUR').upper()  # Default to EUR if not provided
+        car_data['car_id'] = str(uuid.uuid4())
 
         # Validate the car data
         is_valid, error_message = validate_car_data(car_data)
