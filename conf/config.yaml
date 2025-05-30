@@ -1,0 +1,24 @@
+server:
+  host: 'localhost'
+  port: 7700
+  debug: true
+
+database:
+  host: 'localhost'
+  port: 3306
+  user: 'tesla'
+  password: 'tesla1234'
+  db: 'TESLA'
+
+cors:
+  resources:
+    "/*":
+      origins: "*"
+  methods:
+    - 'GET'
+    - 'POST'
+    - 'PUT'
+    - 'DELETE'
+
+logging:
+  level: 'WARNING'
