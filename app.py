@@ -2,6 +2,7 @@ from database.db_handler import TeslaDatabase
 from ml.train_model import CarPricePredictor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+from flask import send_from_directory
 import os
 import io
 import csv
@@ -106,7 +107,9 @@ def validate_car_data(data: Dict) -> tuple[bool, str]:
 
     return True, ""
 
-
+@app.route('/')
+def serve_frontend():
+    return send_from_directory('static', 'index.html')
 @app.route('/health', methods=['GET'])
 def health_check():
     try:
@@ -143,7 +146,7 @@ def query_cars():
     try:
         # Get query parameters
         filters = {}
-        valid_filters = ['country_code', 'product_name', 'model_year', 'condition_status', 'odometer_type']
+        valid_filters = ['country_code', 'product_name', 'model_year', 'condition_status']
 
         for filter_key in valid_filters:
             if filter_key in request.args:
@@ -425,31 +428,6 @@ def batch_upload_csv():
         return jsonify({
             'success': False,
             'error': 'Internal server error during file processing'
-        }), 500
-
-
-@app.route('/api/car/remove/<car_id>', methods=['DELETE'])
-def delete_car(car_id: str):
-    try:
-        db = get_db()
-        success = db.delete_car(car_id)
-
-        if success:
-            return jsonify({
-                'success': True,
-                'message': f'Car {car_id} deleted successfully'
-            }), 200
-        else:
-            return jsonify({
-                'success': False,
-                'error': f'Car with ID {car_id} not found'
-            }), 404
-
-    except Exception as e:
-        logger.error(f"Error deleting car {car_id}: {str(e)}")
-        return jsonify({
-            'success': False,
-            'error': 'Internal server error'
         }), 500
 
 
