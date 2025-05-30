@@ -41,6 +41,8 @@ CORS(app,
      resources=config['cors']['resources'],
      methods=config['cors']['methods'])
 
+model_path = os.path.join(os.getcwd(), 'ml', 'model')
+predictor = CarPricePredictor(model_path=model_path)
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'csv'
@@ -462,7 +464,6 @@ def price_predict():
 
         car_data = request.get_json()
 
-        # validate required fields for prediction
         required_fields = ['countrycode', 'ProductName', 'ModelYear', 'CurrentOdometer', 'OdometerType', 'Condition']
 
         for field in required_fields:
@@ -472,33 +473,9 @@ def price_predict():
                     'error': f'Missing required field for prediction: {field}'
                 }), 400
 
-        car_data['CarID'] = car_data.get('CarID', 'dummy-001')
-        car_data['Revenue'] = 0
+        car_data['CarID'] = car_data.get('CarID', 'PREDICT-001')
+        car_data['Revenue'] = 0  # Dummy value
 
-        # load the trained model
-        try:
-            predictor = CarPricePredictor()
-
-            # Load the saved model and encoders
-            predictor.model = joblib.load('./ml/model/car_price_model.pkl')
-            predictor.label_encoders = joblib.load('./ml/model/label_encoders.pkl')
-
-            with open('./ml/model/feature_columns.json', 'r') as f:
-                predictor.feature_columns = json.load(f)
-
-        except FileNotFoundError:
-            return jsonify({
-                'success': False,
-                'error': 'Model not found. Please train the model first.'
-            }), 503
-        except Exception as e:
-            logger.error(f"Error loading model: {str(e)}")
-            return jsonify({
-                'success': False,
-                'error': 'Error loading prediction model'
-            }), 500
-
-        # prediction
         try:
             predicted_price, confidence = predictor.predict_price(car_data)
 
@@ -519,6 +496,11 @@ def price_predict():
                 }
             }), 200
 
+        except FileNotFoundError:
+            return jsonify({
+                'success': False,
+                'error': 'Model not found. Please train the model first.'
+            }), 503
         except ValueError as ve:
             return jsonify({
                 'success': False,

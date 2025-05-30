@@ -3,16 +3,19 @@ from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import mean_absolute_error, r2_score
-import joblib
 import json
 from datetime import datetime
+import joblib
+import os
 
 class CarPricePredictor:
-    def __init__(self):
+    def __init__(self, model_path='./model'):
         self.model = None
         self.label_encoders = {}
         self.feature_columns = []
         self.training_stats = {}
+        self.model_path = model_path
+        self._model_loaded = False
 
     def clean_data(self, df):
         print("Starting data cleaning with integrated validation...")
@@ -163,21 +166,81 @@ class CarPricePredictor:
 
     def save_model(self):
         print(f"\nSaving model...")
-        joblib.dump(self.model, './model/car_price_model.pkl')
-        joblib.dump(self.label_encoders, './model/label_encoders.pkl')
 
-        with open('./model/training_stats.json', 'w') as f:
+        model_file = os.path.join(self.model_path, 'car_price_model.pkl')
+        encoders_file = os.path.join(self.model_path, 'label_encoders.pkl')
+        features_file = os.path.join(self.model_path, 'feature_columns.json')
+        stats_file = os.path.join(self.model_path, 'training_stats.json')
+
+        joblib.dump(self.model, model_file)
+        joblib.dump(self.label_encoders, encoders_file)
+
+        with open(features_file, 'w') as f:
             json.dump(self.training_stats, f, indent=2)
 
-        with open('./model/feature_columns.json', 'w') as f:
+        with open(stats_file, 'w') as f:
             json.dump(self.feature_columns, f)
 
         print("Model saved successfully!")
 
+    def load_model(self):
+        """Load the trained model and associated files"""
+        if self._model_loaded:
+            return True
+
+        try:
+            # Check if model files exist
+            model_file = os.path.join(self.model_path, 'car_price_model.pkl')
+            encoders_file = os.path.join(self.model_path, 'label_encoders.pkl')
+            features_file = os.path.join(self.model_path, 'feature_columns.json')
+            stats_file = os.path.join(self.model_path, 'training_stats.json')
+
+            # print(f"Current working directory: {os.getcwd()}")
+            # script_dir = os.path.dirname(os.path.abspath(__file__))
+            # print(f"Script directory: {script_dir}")
+            # if not os.path.isabs(self.model_path):
+            #     model_dir = os.path.join(script_dir, self.model_path)
+            # else:
+            #     model_dir = self.model_path
+            # print(f"Looking for model in: {model_dir}")
+            # print(f"Model file path: {model_file}")
+            # print(f"Model file exists: {os.path.exists(model_file)}")
+
+            if not all(os.path.exists(f) for f in [model_file, encoders_file, features_file]):
+                raise FileNotFoundError("Required model files not found. Please train the model first.")
+
+            # Load model components
+            self.model = joblib.load(model_file)
+            self.label_encoders = joblib.load(encoders_file)
+
+            with open(features_file, 'r') as f:
+                self.feature_columns = json.load(f)
+
+            # Load training stats if available
+            if os.path.exists(stats_file):
+                with open(stats_file, 'r') as f:
+                    self.training_stats = json.load(f)
+
+            self._model_loaded = True
+            print(f"Model loaded successfully from {self.model_path}")
+            return True
+
+        except Exception as e:
+            print(f"Error loading model: {str(e)}")
+            raise e
+
+    def is_model_loaded(self):
+        """Check if model is loaded"""
+        return self._model_loaded and self.model is not None
+
     def predict_price(self, car_features: dict):
         """Predict price for a single car with integrated validation"""
+        # Auto-load model if not loaded
+        if not self.is_model_loaded():
+            self.load_model()
+
         if self.model is None:
-            raise ValueError("Model not trained yet!")
+            raise ValueError("Model not loaded!")
 
         # Create single-row DataFrame
         df_input = pd.DataFrame([car_features])

@@ -1,16 +1,1 @@
-{
-  "train_mae": 7755.912670589876,
-  "test_mae": 16634.81885979643,
-  "train_r2": 0.977530074259642,
-  "test_r2": 0.9281101187266732,
-  "training_samples": 247,
-  "test_samples": 62,
-  "features": [
-    "ModelYear",
-    "CurrentOdometer",
-    "CarAge",
-    "ConditionNumeric",
-    "countrycode_encoded",
-    "ProductName_encoded"
-  ]
-}
+["ModelYear", "CurrentOdometer", "CarAge", "ConditionNumeric", "countrycode_encoded", "ProductName_encoded"]
