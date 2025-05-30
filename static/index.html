@@ -340,14 +340,17 @@
                 <!-- Filter Search -->
                 <div class="filters-section">
                     <h3>Filter Cars</h3>
+                    <p style="margin-bottom: 20px; font-size: 0.9rem; color: #666;">
+                        Example: /api/cars/query?country_code=SE&product_name=Model Y&model_year=2023&condition_status=FAIR
+                    </p>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="filter-country">Country Code:</label>
-                            <input type="text" id="filter-country" placeholder="e.g., us, de, nl">
+                            <input type="text" id="filter-country" placeholder="e.g., US, DE, NL, SE">
                         </div>
                         <div class="form-group">
                             <label for="filter-product">Product Name:</label>
-                            <input type="text" id="filter-product" placeholder="e.g., model s, model 3">
+                            <input type="text" id="filter-product" placeholder="e.g., Model S, Model 3, Model Y">
                         </div>
                         <div class="form-group">
                             <label for="filter-year">Model Year:</label>
@@ -357,25 +360,13 @@
                             <label for="filter-condition">Condition:</label>
                             <select id="filter-condition">
                                 <option value="">All Conditions</option>
-                                <option value="new">New</option>
-                                <option value="used">Used</option>
-                                <option value="excellent">Excellent</option>
-                                <option value="good">Good</option>
-                                <option value="fair">Fair</option>
+                                <option value="GOOD">Good</option>
+                                <option value="FAIR">Fair</option>
+                                <option value="LIKE_NEW">Like New</option>
+                                <option value="POOR">Poor</option>
                             </select>
                         </div>
-                        <div class="form-group">
-                            <label for="filter-odometer-type">Odometer Type:</label>
-                            <select id="filter-odometer-type">
-                                <option value="">All Types</option>
-                                <option value="km">Kilometers</option>
-                                <option value="miles">Miles</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="filter-limit">Limit Results:</label>
-                            <input type="number" id="filter-limit" min="1" max="1000" placeholder="50" value="50">
-                        </div>
+
                     </div>
                     <div class="center">
                         <button class="btn" onclick="filterCars()">
@@ -431,11 +422,10 @@
                             <label for="condition-status">Condition Status *:</label>
                             <select id="condition-status" required>
                                 <option value="">Select Condition</option>
-                                <option value="new">New</option>
-                                <option value="used">Used</option>
-                                <option value="excellent">Excellent</option>
-                                <option value="good">Good</option>
-                                <option value="fair">Fair</option>
+                                <option value="GOOD">Good</option>
+                                <option value="FAIR">Fair</option>
+                                <option value="LIKE_NEW">Like New</option>
+                                <option value="POOR">Poor</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -466,7 +456,8 @@
                 <h2>Batch Upload Cars (CSV)</h2>
 
                 <div class="alert alert-info">
-                    <strong>CSV Format:</strong> Your CSV should include columns: CarID, countrycode, ProductName, ProductTrimName, ModelYear, CurrentOdometer, OdometerType, Condition, Revenue
+                    <strong>CSV Format:</strong> Your CSV should include columns: CarID, countrycode, ProductName, ProductTrimName, ModelYear, CurrentOdometer, OdometerType, Condition, Revenue<br>
+                    <strong>Condition values:</strong> GOOD, FAIR, LIKE_NEW, POOR
                 </div>
 
                 <div class="file-upload" onclick="document.getElementById('csv-file').click()">
@@ -518,11 +509,10 @@
                             <label for="pred-condition">Condition *:</label>
                             <select id="pred-condition" required>
                                 <option value="">Select Condition</option>
-                                <option value="new">New</option>
-                                <option value="used">Used</option>
-                                <option value="excellent">Excellent</option>
-                                <option value="good">Good</option>
-                                <option value="fair">Fair</option>
+                                <option value="GOOD">Good</option>
+                                <option value="FAIR">Fair</option>
+                                <option value="LIKE_NEW">Like New</option>
+                                <option value="POOR">Poor</option>
                             </select>
                         </div>
                     </div>
@@ -621,15 +611,11 @@
             const product = document.getElementById('filter-product').value.trim();
             const year = document.getElementById('filter-year').value.trim();
             const condition = document.getElementById('filter-condition').value;
-            const odometerType = document.getElementById('filter-odometer-type').value;
-            const limit = document.getElementById('filter-limit').value.trim();
 
             if (country) filters.country_code = country;
             if (product) filters.product_name = product;
             if (year) filters.model_year = year;
             if (condition) filters.condition_status = condition;
-            if (odometerType) filters.odometer_type = odometerType;
-            if (limit) filters.limit = limit;
 
             const params = new URLSearchParams(filters);
 
@@ -685,8 +671,6 @@
             document.getElementById('filter-product').value = '';
             document.getElementById('filter-year').value = '';
             document.getElementById('filter-condition').value = '';
-            document.getElementById('filter-odometer-type').value = '';
-            document.getElementById('filter-limit').value = '50';
             document.getElementById('lookup-results').innerHTML = '';
         }
 
