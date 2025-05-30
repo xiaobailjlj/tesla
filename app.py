@@ -1,14 +1,17 @@
+from database.db_handler import TeslaDatabase
+from ml.train_model import CarPricePredictor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import os
 import io
 import csv
-from database.db_handler import TeslaDatabase
 import logging
 from typing import Dict
 import traceback
 import yaml
 from datetime import datetime
+import joblib
+import json
 
 
 def load_config(config_file='./conf/config.yaml'):
@@ -40,24 +43,16 @@ CORS(app,
 
 
 def allowed_file(filename):
-    """Check if file extension is allowed"""
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'csv'
 
 
 def get_db():
-    """Get the database handler, ensuring connection is alive"""
     if not db_handler.ensure_connection():
         raise Exception("Failed to establish database connection")
     return db_handler
 
 
 def validate_car_data(data: Dict) -> tuple[bool, str]:
-    """
-    Validate car data for required fields and types
-
-    Returns:
-        tuple: (is_valid, error_message)
-    """
     required_fields = ['car_id', 'country_code', 'product_name', 'model_year',
                        'odometer', 'odometer_type', 'condition_status', 'revenue']
 
@@ -112,7 +107,6 @@ def validate_car_data(data: Dict) -> tuple[bool, str]:
 
 @app.route('/health', methods=['GET'])
 def health_check():
-    """Health check endpoint to verify database connection"""
     try:
         db = get_db()
 
@@ -134,21 +128,16 @@ def health_check():
 
 @app.errorhandler(404)
 def not_found(error):
-    """Handle 404 errors"""
     return jsonify({'error': 'Endpoint not found'}), 404
 
 
 @app.errorhandler(500)
 def internal_error(error):
-    """Handle 500 errors"""
     return jsonify({'error': 'Internal server error'}), 500
 
 
 @app.route('/api/cars/query', methods=['GET'])
 def query_cars():
-    """
-    Query cars with optional filters
-    """
     try:
         # Get query parameters
         filters = {}
@@ -227,9 +216,6 @@ def query_cars():
 
 @app.route('/api/car/query/<car_id>', methods=['GET'])
 def get_car(car_id: str):
-    """
-    Lookup a car by its ID and view all of its features
-    """
     try:
         db = get_db()
         car = db.get_car_by_id(car_id)
@@ -261,9 +247,6 @@ def get_car(car_id: str):
 
 @app.route('/api/car/new', methods=['POST'])
 def add_car():
-    """
-    Add a new car to the system by filling in the relevant features
-    """
     try:
         if not request.is_json:
             return jsonify({
@@ -315,9 +298,6 @@ def add_car():
 
 @app.route('/api/cars/new', methods=['POST'])
 def batch_upload_csv():
-    """
-    Batch load a CSV file with car data
-    """
     try:
         # Check if file is present in the request
         if 'csv_file' not in request.files:
@@ -448,9 +428,6 @@ def batch_upload_csv():
 
 @app.route('/api/car/remove/<car_id>', methods=['DELETE'])
 def delete_car(car_id: str):
-    """
-    Delete a car by its ID
-    """
     try:
         db = get_db()
         success = db.delete_car(car_id)
@@ -472,6 +449,95 @@ def delete_car(car_id: str):
             'success': False,
             'error': 'Internal server error'
         }), 500
+
+
+@app.route('/api/car/predict', methods=['POST'])
+def price_predict():
+    try:
+        if not request.is_json:
+            return jsonify({
+                'success': False,
+                'error': 'Content-Type must be application/json'
+            }), 400
+
+        car_data = request.get_json()
+
+        # validate required fields for prediction
+        required_fields = ['countrycode', 'ProductName', 'ModelYear', 'CurrentOdometer', 'OdometerType', 'Condition']
+
+        for field in required_fields:
+            if field not in car_data or car_data[field] is None or car_data[field] == '':
+                return jsonify({
+                    'success': False,
+                    'error': f'Missing required field for prediction: {field}'
+                }), 400
+
+        car_data['CarID'] = car_data.get('CarID', 'dummy-001')
+        car_data['Revenue'] = 0
+
+        # load the trained model
+        try:
+            predictor = CarPricePredictor()
+
+            # Load the saved model and encoders
+            predictor.model = joblib.load('./ml/model/car_price_model.pkl')
+            predictor.label_encoders = joblib.load('./ml/model/label_encoders.pkl')
+
+            with open('./ml/model/feature_columns.json', 'r') as f:
+                predictor.feature_columns = json.load(f)
+
+        except FileNotFoundError:
+            return jsonify({
+                'success': False,
+                'error': 'Model not found. Please train the model first.'
+            }), 503
+        except Exception as e:
+            logger.error(f"Error loading model: {str(e)}")
+            return jsonify({
+                'success': False,
+                'error': 'Error loading prediction model'
+            }), 500
+
+        # prediction
+        try:
+            predicted_price, confidence = predictor.predict_price(car_data)
+
+            return jsonify({
+                'success': True,
+                'prediction': {
+                    'predicted_price': round(float(predicted_price), 2),
+                    'currency': 'EUR',
+                    'confidence': confidence
+                },
+                'input_data': {
+                    'country_code': car_data['countrycode'],
+                    'product_name': car_data['ProductName'],
+                    'model_year': car_data['ModelYear'],
+                    'odometer': car_data['CurrentOdometer'],
+                    'odometer_type': car_data['OdometerType'],
+                    'condition': car_data['Condition']
+                }
+            }), 200
+
+        except ValueError as ve:
+            return jsonify({
+                'success': False,
+                'error': f'Prediction failed: {str(ve)}'
+            }), 400
+        except Exception as e:
+            logger.error(f"Error during prediction: {str(e)}")
+            return jsonify({
+                'success': False,
+                'error': 'Internal error during prediction'
+            }), 500
+
+    except Exception as e:
+        logger.error(f"Error in price prediction endpoint: {str(e)}")
+        return jsonify({
+            'success': False,
+            'error': 'Internal server error'
+        }), 500
+
 
 
 if __name__ == '__main__':
