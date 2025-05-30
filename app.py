@@ -69,7 +69,7 @@ def validate_car_data(data: Dict) -> tuple[bool, str]:
     # Validate data types and ranges
     try:
         data['model_year'] = int(data['model_year'])
-        if data['model_year'] < 1900 or data['model_year'] > 2025:
+        if data['model_year'] < 2003 or data['model_year'] > datetime.now().year:
             return False, "Model year invalid"
 
         data['odometer'] = int(data['odometer'])
@@ -93,8 +93,19 @@ def validate_car_data(data: Dict) -> tuple[bool, str]:
 
     # Validate odometer type
     data['odometer_type'] = data['odometer_type'].lower()
+    if data['odometer_type'] in ['km', 'kms', 'kilometer', 'kilometers']:
+        data['odometer_type'] = 'km'
+    elif data['odometer_type'] in ['miles', 'mile']:
+        data['odometer_type'] = 'miles'
     if data['odometer_type'] not in ['km', 'miles']:
         return False, "Odometer type must be 'km' or 'miles'"
+
+    # everything to lowercase: country_code, product_name, odometer_type, condition_status
+    data['country_code'] = data['country_code'].lower()
+    data['product_name'] = data['product_name'].lower()
+    # data['product_trim_name'] = data.get('product_trim_name', '').lower()
+    data['odometer_type'] = data['odometer_type'].lower()
+    data['condition_status'] = data['condition_status'].lower()
 
     return True, ""
 
@@ -145,7 +156,7 @@ def query_cars():
 
         for filter_key in valid_filters:
             if filter_key in request.args:
-                value = request.args.get(filter_key)
+                value = request.args.get(filter_key).lower().strip()  # Normalize to lowercase and strip whitespace
                 if filter_key == 'model_year':
                     try:
                         filters[filter_key] = int(value)
@@ -261,6 +272,7 @@ def add_car():
             }), 400
 
         car_data = request.get_json()
+        car_data['currency'] = car_data.get('currency', 'EUR').upper()  # Default to EUR if not provided
 
         # Validate the car data
         is_valid, error_message = validate_car_data(car_data)
@@ -351,11 +363,11 @@ def batch_upload_csv():
                         'country_code': row.get('countrycode', '').strip(),
                         'product_name': row.get('ProductName', '').strip(),
                         'product_trim_name': row.get('ProductTrimName', '').strip() or None,
-                        'model_year': int(float(row.get('ModelYear', 0))),
-                        'odometer': int(float(row.get('CurrentOdometer', 0))),
-                        'odometer_type': row.get('OdometerType', 'km').lower().strip(),
+                        'model_year': int(float(row.get('ModelYear', '0') or '0')),  # if ModelYear is empty, it defaults to '0' before attempting the conversion.
+                        'odometer': int(float(row.get('CurrentOdometer', '0') or '0')),  # if CurrentOdometer is empty, it defaults to '0' before attempting the conversion.
+                        'odometer_type': row.get('OdometerType', '').strip(),
                         'condition_status': row.get('Condition', '').strip(),
-                        'revenue': int(float(row.get('Revenue', 0))),
+                        'revenue': int(float(row.get('Revenue', '0') or '0')),  # if Revenue is empty, it defaults to '0' before attempting the conversion.
                         'currency': 'EUR'  # Default currency
                     }
 
@@ -389,7 +401,7 @@ def batch_upload_csv():
             return jsonify({
                 'success': False,
                 'error': 'No valid car data found in CSV file',
-                'parse_errors': parse_errors[:10],  # Show first 10 errors
+                'parse_errors': parse_errors,
                 'total_parse_errors': len(parse_errors)
             }), 400
 
@@ -412,9 +424,7 @@ def batch_upload_csv():
 
             # Include parse errors if any (but limit to avoid large responses)
             if parse_errors:
-                response_data['parse_errors'] = parse_errors[:5]  # Show first 5 parse errors
-                if len(parse_errors) > 5:
-                    response_data['message'] += f' (showing 5 of {len(parse_errors)} parse errors)'
+                response_data['parse_errors'] = parse_errors
 
             return jsonify(response_data), 200
 

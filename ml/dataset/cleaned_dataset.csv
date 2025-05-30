@@ -1,0 +1,310 @@
+countrycode,ProductName,ProductTrimName,ModelYear,CurrentOdometer,OdometerType,Condition,Revenue,CarID,ConditionNumeric,CarAge
+no,model 3,,2023.0,5362.0,km,good,364856.1347906898,CAR-00001,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,24700.0,km,fair,31195.28513148448,CAR-00002,2,2.0
+it,model 3,,2023.0,7087.0,km,good,34035.9670138702,CAR-00003,3,2.0
+pt,model 3,Long Range AWD,2023.0,16900.0,km,good,41964.23215371647,CAR-00004,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,8824.0,km,fair,31926.887950158827,CAR-00005,2,2.0
+it,model y,Performance,2023.0,48000.0,km,good,44277.65424838428,CAR-00006,3,2.0
+se,model y,Long Range AWD,2023.0,49935.0,km,good,355737.68952743,CAR-00007,3,2.0
+de,model y,Performance,2023.0,14400.0,km,good,43299.90579299941,CAR-00008,3,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,8610.0,km,good,40689.56865776407,CAR-00009,3,2.0
+pt,model 3,Long Range Rear-Wheel Drive,2023.0,31114.0,km,good,38154.48653715911,CAR-00010,3,2.0
+be,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,7285.0,km,good,46554.7310047527,CAR-00013,3,1.0
+pl,model y,Rear-Wheel Drive,2024.0,9980.0,km,god,174591.4223086685,CAR-00014,3,1.0
+it,model y,Performance,2024.0,8458.0,km,goo,52213.67083944636,CAR-00015,3,1.0
+fr,model y,Performance,2024.0,16250.0,km,fair,46690.70346870511,CAR-00016,2,1.0
+dk,model y,Long Range AWD,2024.0,26816.0,km,fair,318976.42401160934,CAR-00017,2,1.0
+gb,model 3,Rear-Wheel Drive,2023.0,6418.04792,km,fair,25735.966721753888,CAR-00019,2,2.0
+de,model y,Rear-Wheel Drive,2023.0,44790.0,km,good,32663.419711758717,CAR-00021,3,2.0
+de,model y,Long Range AWD,2023.0,30150.0,km,good,41328.62342450046,CAR-00022,3,2.0
+fr,model y,Performance,2023.0,30000.0,km,good,46420.114742971695,CAR-00023,3,2.0
+es,model y,Performance,2023.0,15000.0,km,good,42894.8039959651,CAR-00024,3,2.0
+de,model 3,Long Range AWD,2023.0,14033.0,km,good,36800.32660389699,CAR-00026,3,2.0
+ie,model y,Rear-Wheel Drive,2023.0,80650.0,km,good,30401.63551237933,CAR-00027,3,2.0
+be,model 3,Rear-Wheel Drive,2023.0,7638.0,km,good,34704.1959951139,CAR-00028,3,2.0
+dk,model y,Long Range AWD,2023.0,25918.0,km,fair,302591.5788152489,CAR-00029,2,2.0
+de,model y,Rear-Wheel Drive,2023.0,16867.0,km,good,36979.040561133406,CAR-00030,3,2.0
+be,model 3,Long Range AWD,2023.0,25500.0,km,fair,38292.22246096639,CAR-00031,2,2.0
+nl,model y,Long Range AWD,2023.0,18744.0,km,good,34662.970866898,CAR-00032,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,6755.0,km,good,34234.31799160922,CAR-00033,3,2.0
+pt,model 3,Performance,2023.0,30500.0,km,good,42053.92194873014,CAR-00034,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,17107.2842,km,good,34392.72116795599,CAR-00035,3,2.0
+ch,model 3,Long Range AWD,2023.0,12491.0,km,fair,40360.72375563111,CAR-00036,2,2.0
+de,model y,Rear-Wheel Drive,2023.0,30318.0,km,good,36582.94794945326,CAR-00037,3,2.0
+se,model y,Long Range AWD,2023.0,38000.0,km,good,458906.2896986049,CAR-00038,3,2.0
+de,model x,Long Range Palladium,2023.0,4400.0,km,good,82360.60747028654,CAR-00039,3,2.0
+fr,model y,Performance,2023.0,38382.0,km,goo,49051.25162511296,CAR-00040,3,2.0
+es,model 3,Rear-Wheel Drive,2023.0,39000.0,km,far,32103.88319870172,CAR-00041,2,2.0
+de,model y,Long Range AWD,2023.0,16057.0,km,good,40408.05186196384,CAR-00042,3,2.0
+es,model 3,Rear-Wheel Drive,2023.0,1855.0,km,good,28981.213533919017,CAR-00043,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,33100.0,km,mfair,27208.65619661988,CAR-00044,2,2.0
+nl,model 3,Rear-Wheel Drive,2023.0,33685.0,km,good,34862.42208057665,CAR-00045,3,2.0
+de,model y,,2023.0,15246.0,km,good,35954.07453384923,CAR-00046,3,2.0
+se,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,16816.0,km,good,413410.43718821526,CAR-00047,3,1.0
+it,model y,Performance,2024.0,10282.0,km,good,49297.65136607394,CAR-00048,3,1.0
+de,model y,Performance,2024.0,11835.0,km,good,44472.83628789794,CAR-00050,3,1.0
+de,model 3,Model 3 Rear-Wheel Drive,2024.0,3925.0,km,good,35192.5039746866,CAR-00051,3,1.0
+de,model 3,Rear-Wheel Drive,2023.0,21000.0,km,good,30734.631109504877,CAR-00053,3,2.0
+no,model y,Rear-Wheel Drive,2023.0,35566.0,km,good,348568.63160617003,CAR-00054,3,2.0
+dk,model 3,Long Range AWD,2023.0,35200.0,km,good,264477.92278959206,CAR-00055,3,2.0
+gb,model 3,Performance,2023.0,52728.415759999996,km,good,34007.52842917784,CAR-00056,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,58600.0,km,fair,31882.80258286668,CAR-00059,2,2.0
+nl,model 3,Long Range AWD,2023.0,11488.0,km,fair,40310.63100183493,CAR-00060,2,2.0
+gb,model 3,Rear-Wheel Drive,2023.0,26251.554079999998,km,good,30877.57610288608,CAR-00061,3,2.0
+fi,model 3,Rear-Wheel Drive,2023.0,52772.0,km,good,35527.19150727315,CAR-00062,3,2.0
+fr,model 3,Long Range AWD,2023.0,99099.0,km,fair,31730.83739886387,CAR-00063,2,2.0
+it,model 3,Long Range AWD,2023.0,14000.0,km,good,43292.04418070971,CAR-00064,3,2.0
+fr,model y,Long Range AWD,2023.0,66666.0,km,good,45829.446379172594,CAR-00066,3,2.0
+no,model y,Rear-Wheel Drive,2023.0,11270.0,km,good,414903.21204042935,CAR-00068,3,2.0
+fr,model y,Rear-Wheel Drive,2023.0,76080.0,km,good,29731.31988446817,CAR-00069,3,2.0
+de,model y,Performance,2023.0,32400.0,km,fair,42382.1346322216,CAR-00070,2,2.0
+gb,model y,Rear-Wheel Drive,2023.0,21887.024,km,good,30654.3734731746,CAR-00071,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,12597.0,km,good,36106.646696511016,CAR-00072,3,2.0
+de,model 3,Long Range AWD,2023.0,39438.0,km,like_new,30510.02534026193,CAR-00073,5,2.0
+de,model 3,Performance,2023.0,28728.0,km,good,36621.65846389354,CAR-00074,3,2.0
+it,model y,Long Range AWD,2023.0,23679.0,km,good,41114.26410330118,CAR-00075,3,2.0
+de,model 3,Performance,2023.0,17347.0,km,good,38401.41809267941,CAR-00077,3,2.0
+de,model 3,Rear-Wheel Drive,2023.0,30567.0,km,good,35621.80003580848,CAR-00078,3,2.0
+it,model y,Long Range AWD,2023.0,108630.45,km,fir,39318.992359265874,CAR-00079,2,2.0
+ch,model 3,Performance,2023.0,15105.0,km,good,35464.24615815845,CAR-00080,3,2.0
+fr,model 3,,2023.0,26906.0,km,good,30744.018670164663,CAR-00082,3,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,38425.0,km,good,36182.42948968906,CAR-00083,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,11550.0,km,good,34670.480152869866,CAR-00084,3,2.0
+de,model 3,Rear-Wheel Drive,2023.0,4367.0,km,good,37563.57151704624,CAR-00085,3,2.0
+fr,model y,Rear-Wheel Drive,2023.0,21000.0,km,fair,33719.18026851704,CAR-00086,2,2.0
+nl,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,67843.0,km,good,42103.66428746245,CAR-00088,3,1.0
+be,model y,Long Range AWD,2023.0,16708.0,km,good,43410.65795814048,CAR-00089,3,2.0
+it,model 3,Model 3 Rear-Wheel Drive,2024.0,50333.0,km,good,32346.4088905103,CAR-00090,3,1.0
+de,model y,Long Range AWD,2023.0,8500.0,km,good,43086.0835399534,CAR-00091,3,2.0
+es,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,24500.0,km,good,41387.39496737189,CAR-00092,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,8900.0,km,good,39725.39550176892,CAR-00093,3,1.0
+se,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,41334.0,km,good,409042.96138871706,CAR-00094,3,1.0
+ch,model 3,Model 3 Rear-Wheel Drive,2024.0,14352.0,km,good,38983.00653720916,CAR-00095,3,1.0
+es,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,20700.0,km,good,40526.47960796551,CAR-00096,3,1.0
+es,model 3,Model 3 Rear-Wheel Drive,2024.0,8198.0,km,good,34334.31821606106,CAR-00097,3,1.0
+be,model y,Rear-Wheel Drive,2024.0,35000.0,km,good,42102.68073524646,CAR-00098,3,1.0
+no,model y,Performance,2024.0,20100.0,km,good,457211.49714405625,CAR-00100,3,1.0
+no,model y,Long Range AWD,2023.0,18100.0,km,good,414096.6453082904,CAR-00101,3,2.0
+ch,model y,Long Range AWD,2023.0,34500.0,km,good,42367.43751606768,CAR-00102,3,2.0
+no,model y,Long Range AWD,2023.0,83000.0,km,good,447568.7684358528,CAR-00105,3,2.0
+it,model y,Long Range AWD,2023.0,29000.0,km,good,43246.36867355349,CAR-00106,3,2.0
+fr,model s,Long Range Palladium,2023.0,9973.0,km,good,77442.65297993881,CAR-00108,3,2.0
+fr,model y,Long Range AWD,2023.0,18592.0,km,good,42401.89510844718,CAR-00109,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,16511.0,km,fair,31692.00490547254,CAR-00110,2,2.0
+fr,model y,Rear-Wheel Drive,2023.0,31929.3056,km,good,33471.43844517355,CAR-00111,3,2.0
+no,model y,Long Range AWD,2023.0,22100.0,km,far,433118.1836696563,CAR-00113,2,2.0
+gb,model s,Plaid,2023.0,8289.0,km,good,65495.56188131113,CAR-00114,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,16492.0,km,good,29866.51362115992,CAR-00115,3,2.0
+de,model 3,Long Range AWD,2023.0,15800.0,km,good,40337.44629657047,CAR-00116,3,2.0
+ch,model 3,Long Range Rear-Wheel Drive,2023.0,62503.0,km,fair,31869.27904305092,CAR-00118,2,2.0
+ch,model y,Long Range AWD,2023.0,19585.0,km,good,45124.80651975546,CAR-00119,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,16300.0,km,good,33599.57561511767,CAR-00120,3,2.0
+be,model 3,Rear-Wheel Drive,2023.0,9097.0,km,good,35309.861294161085,CAR-00121,3,2.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,11615.0,km,good,33048.805338975064,CAR-00122,3,1.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,19000.0,km,fair,44704.60772103171,CAR-00123,2,1.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,39010.0,km,fair,40551.6421534147,CAR-00124,2,1.0
+it,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,19900.0,km,good,40886.1406982481,CAR-00125,3,1.0
+gb,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,3566.29744,km,good,48157.023657678736,CAR-00126,3,1.0
+gb,model y,Rear-Wheel Drive,2024.0,6653.01156,km,fair,34380.34514614337,CAR-00127,2,1.0
+pt,model y,Rear-Wheel Drive,2024.0,1400.0,km,good,34715.54826487182,CAR-00128,3,1.0
+no,model y,Long Range AWD,2024.0,14800.0,km,good,474192.3452062187,CAR-00129,3,1.0
+se,model y,Long Range AWD,2021.0,43971.0,km,good,467992.8937107093,CAR-00130,3,4.0
+de,model 3,Rear-Wheel Drive,2023.0,27577.0,km,good,32097.073680082904,CAR-00131,3,2.0
+de,model y,Long Range AWD,2023.0,23600.0,km,fair,43227.47687627631,CAR-00132,2,2.0
+be,model 3,Long Range AWD,2023.0,34549.0,km,good,36177.87961752,CAR-00133,3,2.0
+gb,model y,Long Range AWD,2023.0,135184.56,km,fair,43800.60892902828,CAR-00134,2,2.0
+it,model 3,Rear-Wheel Drive,2023.0,28500.0,km,fair,37664.53579786273,CAR-00137,2,2.0
+gb,model y,Long Range AWD,2023.0,18968.0,km,good,35929.19166960631,CAR-00140,3,2.0
+no,model y,Long Range AWD,2023.0,37100.0,km,good,394391.8523338381,CAR-00142,3,2.0
+it,model y,Long Range AWD,2023.0,18500.0,km,good,45177.338729414296,CAR-00143,3,2.0
+gb,model 3,Rear-Wheel Drive,2023.0,5028.0,km,good,32838.62282712932,CAR-00144,3,2.0
+se,model y,Long Range AWD,2023.0,59288.0,km,good,333904.87529596296,CAR-00145,3,2.0
+de,model 3,Rear-Wheel Drive,2023.0,8140.0,km,good,38945.956864685664,CAR-00146,3,2.0
+gb,model 3,Rear-Wheel Drive,2023.0,17910.34486,km,good,33944.715827935506,CAR-00147,3,2.0
+ae,model 3,Long Range AWD,2023.0,682000.0,km,fair,145343.42033564296,CAR-00148,2,2.0
+gb,model 3,Long Range Rear-Wheel Drive,2023.0,14493.71604,km,good,37210.521382456405,CAR-00149,3,2.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,10300.0,km,good,50490.14386519459,CAR-00150,3,1.0
+ch,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,13500.0,km,good,45519.33651586546,CAR-00151,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,14050.0,km,fair,36940.291453577694,CAR-00152,2,1.0
+fr,model y,Rear-Wheel Drive,2024.0,28419.0,km,fair,36410.22550840169,CAR-00153,2,1.0
+it,model y,Rear-Wheel Drive,2024.0,14216.0,km,fair,31129.1379080214,CAR-00154,2,1.0
+fr,model 3,,2023.0,30786.0,km,good,32788.19581207337,CAR-00156,3,2.0
+it,model y,Rear-Wheel Drive,2023.0,19380.0,km,good,42187.46970537115,CAR-00157,3,2.0
+nl,model y,Long Range AWD,2023.0,29600.0,km,good,42112.51140848882,CAR-00160,3,2.0
+gb,model 3,Long Range AWD,2023.0,195422.1562,km,good,31339.65582233907,CAR-00161,3,2.0
+pt,model 3,Rear-Wheel Drive,2023.0,32846.0,km,good,26958.277585539483,CAR-00162,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,42000.0,km,good,31841.21556993485,CAR-00163,3,2.0
+nl,model y,Long Range AWD,2023.0,57465.0,km,fair,38770.81815848,CAR-00164,2,2.0
+se,model 3,Performance,2023.0,35981.0,km,good,377808.58990857296,CAR-00166,3,2.0
+es,model 3,Long Range AWD,2023.0,24652.0,km,good,34904.260379749314,CAR-00167,3,2.0
+nl,model y,Performance,2023.0,13702.0,km,fair,45446.12507832094,CAR-00169,2,2.0
+de,model y,Long Range AWD,2023.0,18294.0,km,good,36896.56008230249,CAR-00171,3,2.0
+it,model 3,Long Range AWD,2023.0,34000.0,km,good,37105.458420996176,CAR-00172,3,2.0
+dk,model y,Performance,2023.0,4677.0,km,fair,419473.664523173,CAR-00173,2,2.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,34500.0,km,good,34545.37077765148,CAR-00176,3,1.0
+dk,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,11250.0,km,good,337693.95816416707,CAR-00177,3,1.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,43905.0,km,fair,41011.83599612175,CAR-00178,2,1.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,14100.0,km,good,44226.08184453003,CAR-00179,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,7623.0,km,good,36443.92978227245,CAR-00180,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,13850.0,km,good,37026.61184309506,CAR-00181,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,9232.0,km,good,39071.100228347845,CAR-00182,3,1.0
+de,model y,Long Range AWD,2024.0,7770.0,km,good,45835.91870423577,CAR-00183,3,1.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,8700.0,km,good,39062.52904334059,CAR-00184,3,1.0
+fr,model y,Performance,2024.0,26000.0,km,fair,44756.38644914914,CAR-00186,2,1.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,14316.0,km,good,47006.4552662577,CAR-00187,3,1.0
+de,model y,Long Range RWD,2024.0,5000.0,km,good,45958.303128046624,CAR-00189,3,1.0
+de,model y,Long Range AWD,2023.0,32258.0,km,good,35564.61977159714,CAR-00190,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,381320.0,km,good,32175.59471486801,CAR-00191,3,2.0
+it,model y,Rear-Wheel Drive,2023.0,45400.0,km,good,35611.24484571764,CAR-00192,3,2.0
+nl,model 3,Performance,2023.0,26500.0,km,fair,40153.167557827765,CAR-00193,2,2.0
+gb,model y,Rear-Wheel Drive,2023.0,7578.38206,km,fair,29199.197562189565,CAR-00194,2,2.0
+dk,model y,Long Range AWD,2023.0,33027.0,km,fair,352304.08243083576,CAR-00195,2,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,16744.0,km,good,36691.22040664426,CAR-00196,3,2.0
+it,model y,Long Range AWD,2023.0,17000.0,km,good,40788.96996192804,CAR-00197,3,2.0
+fr,model 3,Performance,2023.0,12944.0,km,fair,40242.55286688668,CAR-00199,2,2.0
+gb,model y,Long Range AWD,2023.0,16148.11756,km,good,44565.213977899904,CAR-00200,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,26000.0,km,good,123653.80965572209,CAR-00202,3,2.0
+fr,model 3,Long Range AWD,2023.0,11000.0,km,fair,42763.604223013695,CAR-00203,2,2.0
+de,model 3,Rear-Wheel Drive,2023.0,11536.0,km,fair,37882.53952487995,CAR-00204,2,2.0
+dk,model y,Rear-Wheel Drive,2023.0,18826.0,km,fair,303580.5222284282,CAR-00205,2,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,12915.0,km,fair,36204.31035560616,CAR-00206,2,2.0
+de,model y,Rear-Wheel Drive,2023.0,16450.0,km,good,34919.12292381528,CAR-00207,3,2.0
+it,model y,Performance,2023.0,69365.0,km,good,36335.31177163175,CAR-00208,3,2.0
+pt,model 3,Performance,2022.0,27678.0,km,good,32580.55207021924,CAR-00209,3,3.0
+gb,model 3,Long Range AWD,2023.0,11242.84924,km,good,33668.63333638955,CAR-00210,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,43000.0,km,good,31917.166660468683,CAR-00211,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,25500.0,km,good,36244.2764419048,CAR-00213,3,2.0
+gb,model 3,Performance,2023.0,34977.39556,km,fair,37440.03252728088,CAR-00217,2,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,18839.0,km,fair,26917.215512321935,CAR-00218,2,2.0
+de,model y,Long Range AWD,2023.0,66350.0,km,good,33476.76694128071,CAR-00220,3,2.0
+nl,model 3,Rear-Wheel Drive,2023.0,56441.0,km,god,29920.50069705296,CAR-00221,3,2.0
+ae,model 3,Rear-Wheel Drive,2023.0,53127.0,km,good,121871.39244942609,CAR-00222,3,2.0
+de,model 3,Performance,2023.0,26000.0,km,good,42444.85780662,CAR-00223,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,18424.0,km,fair,39238.74673850402,CAR-00224,2,2.0
+it,model 3,Rear-Wheel Drive,2023.0,5275.0,km,fair,39040.42637146054,CAR-00225,2,2.0
+it,model y,Long Range AWD,2023.0,75840.0,km,good,40849.15531961004,CAR-00226,3,2.0
+pt,model y,Long Range AWD,2023.0,10094.0,km,good,43896.47384616017,CAR-00227,3,2.0
+gb,model y,Long Range AWD,2023.0,5069.421,km,fair,43124.39812345073,CAR-00229,2,2.0
+fr,model 3,Performance,2023.0,32641.0,km,good,42388.219363986325,CAR-00230,3,2.0
+fr,model y,Performance,2023.0,57000.0,km,good,41823.19715017032,CAR-00231,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,12500.0,km,good,35502.37648549518,CAR-00234,3,2.0
+dk,model 3,Long Range Rear-Wheel Drive,2023.0,6481.0,km,fair,307051.0808140489,CAR-00235,2,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,36333.0,km,fair,32248.453364984693,CAR-00236,2,2.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,25287.0,km,good,41403.10301212222,CAR-00239,3,1.0
+gb,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,4969.64192,km,good,50302.43599364608,CAR-00241,3,1.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,5659.0,km,good,44961.91091624797,CAR-00243,3,1.0
+de,model 3,,2024.0,10600.0,km,fair,46376.91542180484,CAR-00245,2,1.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,8784.0,km,goo,34591.87601664821,CAR-00246,3,1.0
+fr,model y,Rear-Wheel Drive,2023.0,55000.0,km,fair,32789.71754519798,CAR-00247,2,2.0
+de,model 3,Rear-Wheel Drive,2023.0,18000.0,km,good,34158.22151630895,CAR-00249,3,2.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,14000.0,km,good,45410.076700143785,CAR-00250,3,1.0
+de,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,14300.0,km,good,41140.48241823757,CAR-00251,3,1.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,35507.0,km,good,43964.70114955895,CAR-00253,3,1.0
+nl,model y,Long Range RWD,2024.0,20185.95162,km,good,43310.66356954249,CAR-00254,3,1.0
+nl,model s,Plaid,2024.0,9968.0,km,good,94860.68921466316,CAR-00255,3,1.0
+no,model 3,Rear-Wheel Drive,2023.0,38300.0,km,fair,345737.2268609043,CAR-00256,2,2.0
+it,model y,Rear-Wheel Drive,2023.0,24000.0,km,good,33983.17514169383,CAR-00257,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,5283.0,km,good,36626.66951450564,CAR-00258,3,2.0
+lu,model y,Long Range AWD,2023.0,7782.0,km,good,38374.501593501926,CAR-00259,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,24200.0,km,good,32493.779299138885,CAR-00260,3,2.0
+pt,model 3,Long Range AWD,2023.0,18278.0,km,fair,45195.31805621639,CAR-00261,2,2.0
+no,model 3,Long Range AWD,2023.0,25000.0,km,good,359094.16426277265,CAR-00262,3,2.0
+nl,model 3,Rear-Wheel Drive,2023.0,17610.0,km,good,39005.58483278224,CAR-00263,3,2.0
+de,model 3,Performance,2023.0,19600.0,km,good,41406.08040636524,CAR-00264,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,17700.0,km,good,35571.88215451926,CAR-00265,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,28954.0,km,good,36502.92074563077,CAR-00267,3,2.0
+de,model y,Performance,2023.0,18000.0,km,good,47072.867226007074,CAR-00268,3,2.0
+nl,model y,Long Range AWD,2023.0,31894.0,km,good,39953.095276685024,CAR-00270,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,34018.0,km,good,35098.28712788984,CAR-00271,3,2.0
+es,model y,Rear-Wheel Drive,2023.0,25291.0,km,good,36432.0223383518,CAR-00272,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,22959.0,km,good,35007.498738533526,CAR-00273,3,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,36000.0,km,good,34033.33093824842,CAR-00274,3,2.0
+es,model 3,Rear-Wheel Drive,2023.0,15931.0,km,fair,33181.42617788131,CAR-00275,2,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,16900.0,km,good,32325.53793756398,CAR-00276,3,2.0
+it,model y,Rear-Wheel Drive,2023.0,13866.0,km,good,37002.72167150105,CAR-00277,3,2.0
+se,model y,Rear-Wheel Drive,2023.0,21380.0,km,fair,469256.4573099628,CAR-00278,2,2.0
+at,model 3,Long Range Rear-Wheel Drive,2023.0,5790.0,km,fair,35218.58868329779,CAR-00279,2,2.0
+at,model 3,Rear-Wheel Drive,2023.0,7843.0,km,fair,37507.79191902861,CAR-00280,2,2.0
+nl,model y,Rear-Wheel Drive,2023.0,46336.0,km,good,37866.58090436359,CAR-00281,3,2.0
+no,model 3,Rear-Wheel Drive,2023.0,9300.0,km,good,412415.31403059606,CAR-00282,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,3311.0,km,good,30828.82460580641,CAR-00283,3,2.0
+dk,model 3,Long Range AWD,2023.0,35325.0,km,fair,288276.09832684434,CAR-00284,2,2.0
+no,model y,Long Range AWD,2023.0,13101.0,km,fair,406704.7954806285,CAR-00285,2,2.0
+it,model 3,Rear-Wheel Drive,2023.0,39147.0,km,good,33324.86270457176,CAR-00286,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,41000.0,km,fair,30964.367803363944,CAR-00287,2,2.0
+it,model 3,Rear-Wheel Drive,2023.0,9930.0,km,fair,29836.862798798345,CAR-00288,2,2.0
+it,model 3,Rear-Wheel Drive,2023.0,15189.0,km,good,36941.326021518216,CAR-00290,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,29462.0,km,good,32451.36719737129,CAR-00291,3,2.0
+it,model y,Long Range AWD,2023.0,13706.0,km,fair,52274.72323403763,CAR-00292,2,2.0
+gb,model 3,Long Range AWD,2023.0,18904.916979999998,km,good,33074.11802041147,CAR-00293,3,2.0
+es,model y,Long Range AWD,2023.0,57789.0,km,good,42946.23559680886,CAR-00294,3,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,21618.0,km,good,32760.683639749845,CAR-00295,3,2.0
+de,model 3,Rear-Wheel Drive,2023.0,36303.0,km,good,26660.03408452962,CAR-00296,3,2.0
+gb,model 3,Long Range Rear-Wheel Drive,2023.0,28163.45,km,good,32821.331419314185,CAR-00297,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,18507.41,km,good,31263.28477477367,CAR-00298,3,2.0
+ch,model s,Long Range Palladium,2023.0,18811.0,km,fair,71087.25129233622,CAR-00300,2,2.0
+de,model y,Rear-Wheel Drive,2023.0,4391.0,km,good,38314.4356578524,CAR-00301,3,2.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,21000.0,km,good,35664.50908180049,CAR-00302,3,1.0
+pt,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,16509.0,km,fair,47511.70037186038,CAR-00303,2,1.0
+es,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,21600.0,km,good,43069.93170323872,CAR-00304,3,1.0
+fr,model 3,Performance,2024.0,6356.0,km,good,54011.499577053095,CAR-00305,3,1.0
+de,model y,Rear-Wheel Drive,2024.0,3117.0,km,good,41394.73893025465,CAR-00306,3,1.0
+ch,model y,Long Range AWD,2024.0,1500.0,km,good,49832.49995517099,CAR-00308,3,1.0
+it,model s,Plaid,2023.0,32549.0,km,good,93135.72267724689,CAR-00309,3,2.0
+de,model 3,Rear-Wheel Drive,2023.0,17550.0,km,good,31748.49799826214,CAR-00310,3,2.0
+de,model y,Long Range AWD,2023.0,18800.0,km,good,35567.73737777943,CAR-00311,3,2.0
+fr,model 3,Performance,2023.0,2300.0,km,good,48097.507790193646,CAR-00312,3,2.0
+it,model y,Rear-Wheel Drive,2023.0,52520.0,km,good,34474.237634725265,CAR-00313,3,2.0
+es,model y,Rear-Wheel Drive,2023.0,39993.0,km,good,33776.36709226908,CAR-00314,3,2.0
+it,model y,Long Range AWD,2023.0,38677.0,km,good,40042.58926399127,CAR-00315,3,2.0
+de,model s,Long Range Palladium,2023.0,37819.49,km,fair,71829.49481557854,CAR-00316,2,2.0
+de,model x,Plaid,2023.0,10600.0,km,good,92965.94963830184,CAR-00317,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,26651.0,km,fair,36144.52250521767,CAR-00319,2,2.0
+gb,model y,Long Range AWD,2023.0,16872.32056,km,fair,42835.63557200592,CAR-00320,2,2.0
+fr,model 3,Long Range AWD,2023.0,184495.0,km,good,41887.18784397554,CAR-00321,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,15990.0,km,good,30774.96608637702,CAR-00322,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,10100.0,km,good,33991.173764642575,CAR-00324,3,2.0
+ch,model y,Long Range AWD,2023.0,45000.0,km,fair,37177.4922426741,CAR-00326,2,2.0
+fr,model 3,,2023.0,22721.0,km,fair,35794.19149732384,CAR-00327,2,2.0
+de,model 3,Long Range Rear-Wheel Drive,2023.0,19000.0,km,good,31424.789752364093,CAR-00328,3,2.0
+dk,model y,Performance,2023.0,50029.0,km,good,336500.1198204808,CAR-00329,3,2.0
+ie,model 3,Long Range Rear-Wheel Drive,2023.0,19250.0,km,good,37134.053615059245,CAR-00330,3,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,187429.0,km,good,39322.55949448045,CAR-00331,3,2.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,28000.0,km,fair,37575.2075489114,CAR-00333,2,1.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,12500.0,km,fair,36185.04981611912,CAR-00334,2,1.0
+fr,model y,Long Range AWD,2024.0,56073.0,km,good,37736.57274631719,CAR-00336,3,1.0
+fr,model 3,Model 3 Rear-Wheel Drive,2024.0,6589.0,km,good,39683.03011287312,CAR-00337,3,1.0
+fr,model y,Rear-Wheel Drive,2024.0,9735.0,km,good,36298.38744868367,CAR-00339,3,1.0
+fr,model 3,Performance,2024.0,12500.0,km,good,51792.484962972594,CAR-00340,3,1.0
+lu,model y,Performance,2023.0,38785.0,km,fnair,41783.17901386693,CAR-00342,2,2.0
+gb,model y,Long Range AWD,2023.0,18346.476,km,good,41854.49666826097,CAR-00344,3,2.0
+fr,model 3,Rear-Wheel Drive,2023.0,12700.0,km,good,35632.70027247812,CAR-00346,3,2.0
+it,model 3,Rear-Wheel Drive,2023.0,22591.0,km,good,38798.47291054768,CAR-00347,3,2.0
+gb,model y,Rear-Wheel Drive,2023.0,9862.03552,km,good,34825.540887744304,CAR-00350,3,2.0
+de,model 3,Performance,2023.0,14900.0,km,good,40033.85231788299,CAR-00351,3,2.0
+gb,model y,Long Range AWD,2023.0,41203.93202,km,good,37235.7367947969,CAR-00352,3,2.0
+fr,model 3,Long Range AWD,2023.0,37554.0,km,good,38348.69588298163,CAR-00353,3,2.0
+fr,model 3,Long Range AWD,2023.0,40000.0,km,good,39643.63168678271,CAR-00354,3,2.0
+fr,model 3,,2023.0,336220.0,km,fair,32110.113306643467,CAR-00355,2,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,30400.0,km,good,34827.514402302455,CAR-00357,3,2.0
+de,model 3,Long Range Rear-Wheel Drive,2023.0,29132.0,km,good,38615.94814825261,CAR-00359,3,2.0
+es,model 3,,2023.0,15099.0,km,good,36265.022082662144,CAR-00360,3,2.0
+de,model y,Rear-Wheel Drive,2023.0,13257.0,km,ygood,34180.53830217593,CAR-00361,3,2.0
+de,model y,Long Range AWD,2023.0,8217.0,km,good,45630.1545451562,CAR-00362,3,2.0
+fr,model 3,,2024.0,20539.0,km,good,35606.23798856407,CAR-00363,3,1.0
+no,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,14520.0,km,good,426927.0010609235,CAR-00364,3,1.0
+dk,model y,Long Range AWD,2023.0,30600.0,km,good,330490.6231710443,CAR-00365,3,2.0
+fr,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,15633.0,km,good,44536.22767110316,CAR-00366,3,1.0
+se,model y,Performance,2024.0,14617.0,km,fair,482032.48070980434,CAR-00368,2,1.0
+es,model 3,Model 3 Long Range Dual Motor All-Wheel Drive,2024.0,1410.0,km,good,43078.90495958501,CAR-00370,3,1.0
+it,model y,Long Range AWD,2025.0,7307.0,km,good,36160.84286576286,CAR-00371,3,0.0
+fr,model 3,Rear-Wheel Drive,2023.0,12915.0,km,fair,35491.24862735553,CAR-00372,2,2.0
+no,model 3,,2023.0,5362.0,km,good,390012.6834508061,CAR-00373,3,2.0
+ae,model 3,Long Range AWD,2023.0,682000.0,km,fair,138992.38740508372,CAR-00374,2,2.0
+fr,model 3,Long Range Rear-Wheel Drive,2023.0,30400.0,km,good,36056.2657845096,CAR-00375,3,2.0
+de,model 3,Long Range Rear-Wheel Drive,2023.0,29132.0,km,good,38607.213878262,CAR-00377,3,2.0
+gb,model y,Long Range AWD,2023.0,16148.11756,km,good,45736.72645988953,CAR-00378,3,2.0
+de,model 3,Long Range AWD,2023.0,14033.0,km,good,38914.9845231167,CAR-00379,3,2.0
+es,model y,Performance,2023.0,15000.0,km,good,45648.41047735341,CAR-00380,3,2.0
+it,model y,Long Range AWD,2023.0,48051.0,km,good,42796.83126914431,CAR-00381,3,2.0
+pt,model 3,Long Range Rear-Wheel Drive,2023.0,31114.0,km,good,36141.13339620033,CAR-00382,3,2.0
