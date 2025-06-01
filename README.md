@@ -171,6 +171,7 @@ curl -X POST http://127.0.0.1:7700/api/car/predict \
 - SQL injection protection
 - Authentication
 - Improve model performance
+- Make prediction model dynamic
 
 ## Troubleshooting
 **Docker Issues**
