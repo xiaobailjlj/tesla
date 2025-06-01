@@ -144,7 +144,20 @@ class CarPricePredictor:
                 le = LabelEncoder()
                 df_features[f'{feature}_encoded'] = le.fit_transform(df_features[feature].astype(str))
                 self.label_encoders[feature] = le
-                print(f"Encoded {feature}: {len(le.classes_)} unique values")
+
+                # Print original feature info
+                print(f"\n=== {feature} ENCODING ===")
+                print(f"Unique values: {len(le.classes_)}")
+                print(f"Original values: {df_features[feature].unique()[:10]}")  # Show first 10
+                print(f"Encoded values:  {df_features[f'{feature}_encoded'].unique()[:10]}")  # Show first 10
+
+                # Show mapping between original and encoded values
+                print(f"Mapping:")
+                for i, class_name in enumerate(le.classes_[:10]):  # Show first 10 mappings
+                    print(f"  '{class_name}' → {i}")
+                if len(le.classes_) > 10:
+                    print(f"  ... and {len(le.classes_) - 10} more")
+
             else:
                 if feature in self.label_encoders:
                     le = self.label_encoders[feature]
