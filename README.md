@@ -172,6 +172,7 @@ curl -X POST http://127.0.0.1:7700/api/car/predict \
 - Authentication
 - Improve model performance
 - Make prediction model dynamic
+- If high performance is needed, go + microservices might be a better choice
 
 ## Troubleshooting
 **Docker Issues**
