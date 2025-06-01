@@ -3,6 +3,7 @@ from ml.train_model import CarPricePredictor
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from flask import send_from_directory
+from flasgger import Swagger
 import os
 import io
 import csv
@@ -15,7 +16,7 @@ import joblib
 import json
 import uuid
 
-
+# init config
 def load_config(config_file='./conf/config.yaml'):
     config_path = os.path.join(os.path.dirname(__file__), config_file)
     with open(config_path, 'r') as file:
@@ -24,9 +25,11 @@ def load_config(config_file='./conf/config.yaml'):
 
 config = load_config()
 
+# init logger
 logging.basicConfig(level=getattr(logging, config['logging']['level']))
 logger = logging.getLogger(__name__)
 
+# init db
 DB_CONFIG = {
     'host': config['database']['host'],
     'port': config['database']['port'],
@@ -35,16 +38,20 @@ DB_CONFIG = {
     'database': config['database']['db']
 }
 
-# Create a single database instance and establish connection
 db_handler = TeslaDatabase(**DB_CONFIG)
 
+# init app
 app = Flask(__name__)
 CORS(app,
      resources=config['cors']['resources'],
      methods=config['cors']['methods'])
 
+# init model predictor
 model_path = os.path.join(os.getcwd(), 'ml', 'model')
 predictor = CarPricePredictor(model_path=model_path)
+
+# init swagger: /apidocs/
+swagger = Swagger(app)
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() == 'csv'
@@ -113,6 +120,28 @@ def serve_frontend():
     return send_from_directory('static', 'index.html')
 @app.route('/health', methods=['GET'])
 def health_check():
+    """Check API health
+        ---
+        tags:
+          - Health
+        responses:
+          200:
+            description: Service is healthy
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  example: healthy
+                database:
+                  type: string
+                  example: connected
+                timestamp:
+                  type: string
+                  example: "2025-01-01T12:00:00"
+          503:
+            description: Service is unhealthy
+    """
     try:
         db = get_db()
 
@@ -144,6 +173,66 @@ def internal_error(error):
 
 @app.route('/api/cars/query', methods=['GET'])
 def query_cars():
+    """Query cars with optional filters
+        ---
+        tags:
+          - Cars
+        parameters:
+          - name: country_code
+            in: query
+            type: string
+            description: Filter by country code
+          - name: product_name
+            in: query
+            type: string
+            description: Filter by Tesla model name
+          - name: model_year
+            in: query
+            type: integer
+            description: Filter by model year
+          - name: condition_status
+            in: query
+            type: string
+            description: Filter by vehicle condition
+          - name: limit
+            in: query
+            type: integer
+            description: Maximum number of results
+          - name: offset
+            in: query
+            type: integer
+            description: Number of results to skip
+        responses:
+          200:
+            description: List of cars
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                data:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      car_id:
+                        type: string
+                      country_code:
+                        type: string
+                      product_name:
+                        type: string
+                      model_year:
+                        type: integer
+                      odometer:
+                        type: integer
+                      revenue:
+                        type: integer
+                count:
+                  type: integer
+          400:
+            description: Invalid query parameters
+    """
     try:
         # Get query parameters
         filters = {}
@@ -222,6 +311,42 @@ def query_cars():
 
 @app.route('/api/car/query/<car_id>', methods=['GET'])
 def get_car(car_id: str):
+    """Get a specific car by ID
+        ---
+        tags:
+          - Cars
+        parameters:
+          - name: car_id
+            in: path
+            type: string
+            required: true
+            description: The car identifier
+        responses:
+          200:
+            description: Car details
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                data:
+                  type: object
+                  properties:
+                    car_id:
+                      type: string
+                    country_code:
+                      type: string
+                    product_name:
+                      type: string
+                    model_year:
+                      type: integer
+                    odometer:
+                      type: integer
+                    revenue:
+                      type: integer
+          404:
+            description: Car not found
+    """
     try:
         db = get_db()
         car = db.get_car_by_id(car_id)
@@ -253,6 +378,66 @@ def get_car(car_id: str):
 
 @app.route('/api/car/new', methods=['POST'])
 def add_car():
+    """Add a new car
+        ---
+        tags:
+          - Cars
+        parameters:
+          - name: car_data
+            in: body
+            required: true
+            schema:
+              type: object
+              required:
+                - country_code
+                - product_name
+                - model_year
+                - odometer
+                - odometer_type
+                - condition_status
+                - revenue
+              properties:
+                country_code:
+                  type: string
+                  description: Country code (e.g., US, DE)
+                  example: "US"
+                product_name:
+                  type: string
+                  description: Tesla model name
+                  example: "model s"
+                model_year:
+                  type: integer
+                  description: Year of manufacture
+                  example: 2022
+                odometer:
+                  type: integer
+                  description: Current odometer reading
+                  example: 25000
+                odometer_type:
+                  type: string
+                  enum: ["km", "miles"]
+                  description: Odometer unit
+                  example: "km"
+                condition_status:
+                  type: string
+                  description: Vehicle condition
+                  example: "excellent"
+                revenue:
+                  type: integer
+                  description: Revenue in EUR
+                  example: 45000
+                currency:
+                  type: string
+                  description: Currency code
+                  default: "EUR"
+        responses:
+          201:
+            description: Car added successfully
+          400:
+            description: Invalid input data
+          409:
+            description: Car already exists
+    """
     try:
         if not request.is_json:
             return jsonify({
@@ -305,6 +490,71 @@ def add_car():
 
 @app.route('/api/cars/new', methods=['POST'])
 def batch_upload_csv():
+    """Batch upload cars from CSV file
+        ---
+        tags:
+          - Cars
+        consumes:
+          - multipart/form-data
+        parameters:
+          - name: csv_file
+            in: formData
+            type: file
+            required: true
+            description: CSV file containing car data
+            x-example: |
+              Expected CSV columns:
+              CarID, countrycode, ProductName, ProductTrimName, ModelYear,
+              CurrentOdometer, OdometerType, Condition, Revenue
+        responses:
+          200:
+            description: CSV processing completed
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: true
+                message:
+                  type: string
+                  example: "CSV processing completed"
+                results:
+                  type: object
+                  properties:
+                    successful_inserts:
+                      type: integer
+                      example: 45
+                    failed_inserts:
+                      type: integer
+                      example: 2
+                    total_processed:
+                      type: integer
+                      example: 47
+                    parse_errors_count:
+                      type: integer
+                      example: 3
+                    total_rows_in_csv:
+                      type: integer
+                      example: 50
+                parse_errors:
+                  type: array
+                  items:
+                    type: string
+                  example: ["Row 5: Missing required field: ModelYear"]
+          400:
+            description: Invalid file or no file provided
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                  example: false
+                error:
+                  type: string
+                  example: "No file provided. Please upload a CSV file with field name 'csv_file'"
+          500:
+            description: Database or processing error
+    """
     try:
         # Check if file is present in the request
         if 'csv_file' not in request.files:
@@ -435,6 +685,72 @@ def batch_upload_csv():
 
 @app.route('/api/car/predict', methods=['POST'])
 def price_predict():
+    """Predict car price based on characteristics
+        ---
+        tags:
+          - Prediction
+        parameters:
+          - name: prediction_data
+            in: body
+            required: true
+            schema:
+              type: object
+              required:
+                - countrycode
+                - ProductName
+                - ModelYear
+                - CurrentOdometer
+                - OdometerType
+                - Condition
+              properties:
+                countrycode:
+                  type: string
+                  example: "US"
+                ProductName:
+                  type: string
+                  example: "model s"
+                ModelYear:
+                  type: integer
+                  example: 2022
+                CurrentOdometer:
+                  type: integer
+                  example: 25000
+                OdometerType:
+                  type: string
+                  enum: ["km", "miles"]
+                  example: "km"
+                Condition:
+                  type: string
+                  example: "excellent"
+                CarID:
+                  type: string
+                  description: Optional car ID for prediction
+                  example: "PREDICT-001"
+        responses:
+          200:
+            description: Price prediction result
+            schema:
+              type: object
+              properties:
+                success:
+                  type: boolean
+                prediction:
+                  type: object
+                  properties:
+                    predicted_price:
+                      type: number
+                      example: 45000.50
+                    currency:
+                      type: string
+                      example: "EUR"
+                    confidence:
+                      type: number
+                      example: 0.85
+          400:
+            description: Invalid input data
+          503:
+            description: ML model not available
+    """
     try:
         if not request.is_json:
             return jsonify({

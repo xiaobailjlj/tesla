@@ -1,28 +1,16 @@
-[
-  "ModelYear",
-  "CurrentOdometer",
-  "CarAge",
-  "ConditionNumeric",
-  "countrycode_ae",
-  "countrycode_at",
-  "countrycode_be",
-  "countrycode_ch",
-  "countrycode_de",
-  "countrycode_dk",
-  "countrycode_es",
-  "countrycode_fi",
-  "countrycode_fr",
-  "countrycode_gb",
-  "countrycode_ie",
-  "countrycode_it",
-  "countrycode_lu",
-  "countrycode_nl",
-  "countrycode_no",
-  "countrycode_pl",
-  "countrycode_pt",
-  "countrycode_se",
-  "ProductName_model 3",
-  "ProductName_model s",
-  "ProductName_model x",
-  "ProductName_model y"
-]
+{
+  "train_mae": 7755.912670589875,
+  "test_mae": 16634.818859796433,
+  "train_r2": 0.977530074259642,
+  "test_r2": 0.928110118726673,
+  "training_samples": 247,
+  "test_samples": 62,
+  "features": [
+    "ModelYear",
+    "CurrentOdometer",
+    "CarAge",
+    "ConditionNumeric",
+    "countrycode_encoded",
+    "ProductName_encoded"
+  ]
+}
