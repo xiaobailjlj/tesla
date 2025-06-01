@@ -1,1 +1,43 @@
-["ModelYear", "CurrentOdometer", "CarAge", "ConditionNumeric", "countrycode_encoded", "ProductName_encoded"]
+{
+  "train_mae": 79684.04142784863,
+  "test_mae": 80873.29158530872,
+  "train_r2": -0.5111405944917293,
+  "test_r2": -0.5322347722490459,
+  "training_samples": 247,
+  "test_samples": 62,
+  "features": [
+    "ModelYear",
+    "CurrentOdometer",
+    "CarAge",
+    "ConditionNumeric",
+    "countrycode_ae",
+    "countrycode_at",
+    "countrycode_be",
+    "countrycode_ch",
+    "countrycode_de",
+    "countrycode_dk",
+    "countrycode_es",
+    "countrycode_fi",
+    "countrycode_fr",
+    "countrycode_gb",
+    "countrycode_ie",
+    "countrycode_it",
+    "countrycode_lu",
+    "countrycode_nl",
+    "countrycode_no",
+    "countrycode_pl",
+    "countrycode_pt",
+    "countrycode_se",
+    "ProductName_model 3",
+    "ProductName_model s",
+    "ProductName_model x",
+    "ProductName_model y"
+  ],
+  "model_type": "MLPRegressor",
+  "hidden_layers": [
+    100,
+    50
+  ],
+  "n_iterations": 22,
+  "final_loss": 9797994790.339203
+}
