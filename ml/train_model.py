@@ -7,6 +7,9 @@ import json
 from datetime import datetime
 import joblib
 import os
+import matplotlib.pyplot as plt
+import traceback
+
 
 class CarPricePredictor:
     def __init__(self, model_path='./model'):
@@ -283,7 +286,6 @@ class CarPricePredictor:
 
 def plot_data_analysis(df_clean):
     """Create simple plots: revenue frequency and revenue vs features"""
-    import matplotlib.pyplot as plt
 
     # 1. Revenue Frequency Distribution (separate figure)
     plt.figure(figsize=(10, 6))
@@ -501,6 +503,5 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"Process failed: {e}")
-        import traceback
 
         traceback.print_exc()
