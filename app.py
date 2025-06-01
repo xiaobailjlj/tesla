@@ -16,13 +16,17 @@ import json
 import uuid
 
 # init config
-def load_config(config_file='./conf/config.yaml'):
+def load_config(config_file=''):
     config_path = os.path.join(os.path.dirname(__file__), config_file)
     with open(config_path, 'r') as file:
         return yaml.safe_load(file)
 
+if os.getenv('DOCKER_ENV'):
+    config_file = './conf/config-docker.yaml'
+else:
+    config_file = './conf/config.yaml'
 
-config = load_config()
+config = load_config(config_file)
 
 # init logger
 logging.basicConfig(level=getattr(logging, config['logging']['level']))
@@ -78,11 +82,11 @@ def validate_car_data(data: Dict) -> tuple[bool, str]:
             return False, "Model year invalid"
 
         data['odometer'] = int(data['odometer'])
-        if data['odometer'] < 0:
+        if data['odometer'] <= 0:
             return False, "Odometer invalid"
 
         data['revenue'] = int(data['revenue'])
-        if data['revenue'] < 0:
+        if data['revenue'] <= 0:
             return False, "Revenue invalid"
 
     except (ValueError, TypeError):
